@@ -9,6 +9,6 @@ export class RefreshToken {
   @Column()
   token: string;
 
-  @ManyToOne(() => Auth,{ eager: true })
+  @ManyToOne(() => Auth, { eager: true })
   user: Auth | number;
 }

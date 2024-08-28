@@ -1,7 +1,9 @@
+import { Refueling } from 'src/refueling/refueling.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -22,6 +24,9 @@ export class Auth {
 
   @Column()
   password: string;
+
+  @OneToMany(() => Refueling, (refueling) => refueling.station)
+  refuelings: Refueling[];
 
   @CreateDateColumn({ type: 'timestamp' })
   createAt: Date;

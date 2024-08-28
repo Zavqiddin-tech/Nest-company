@@ -17,6 +17,15 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
+  async getAll() {
+    const users = await this.authRepository.find()
+    console.log(users);
+    
+    return {
+      users
+    }
+  }
+
   async regis(dto: CreateAuthDto) {
     const existuser = await this.authRepository.findOne({
       where: { username: dto.username },

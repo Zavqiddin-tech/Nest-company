@@ -5,8 +5,8 @@ export class CompanyDto {
   companyName: string;
 
   @IsString()
-  companyNumber: string;
+  companyPhone: string;
 
   @IsString()
-  companyDirector: string;
+  companyBoss: string;
 }

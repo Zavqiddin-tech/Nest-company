@@ -1,9 +1,11 @@
+import { Car } from 'src/car/car.entity';
 import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
 
 @Entity()
@@ -15,10 +17,13 @@ export class Company {
   companyName: string;
 
   @Column()
-  companyNumber: string;
+  companyPhone: string;
 
   @Column({ nullable: true })
-  companyDirector: string;
+  companyBoss: string;
+
+  @OneToMany(() => Car, (car) => car.authorCompany)
+  cars: Car[];
 
   @CreateDateColumn({ type: 'timestamp' })
   createAt: Date;
